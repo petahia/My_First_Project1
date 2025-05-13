@@ -2,26 +2,41 @@ namespace My_First_Project;
 
 public class TheSeriesAnalyzer
 {
+    static List<int> listInput = new List<int>();
     static void Main(string[] args)
     {
         DisplayMenu(char.Parse(Console.ReadLine()));
     }
 
-    static List<int> Input(string input)
+    static void Input()
     {
-        return input.Split(',').Select(int.Parse).ToList();
+        Console.WriteLine("Enter numbers separated by Commas:");
+        string input  = Console.ReadLine();
+        
+        listInput = input.Split(',').Select(int.Parse).ToList();
     }
 
-    static string ValidateInput(string input)
+    static bool ValidateInput(List<int> series)
     {
-        
+        bool valid =  true;
+        foreach (var num in series)
+        {
+            if (num < 0)
+            {
+                valid = false;
+            }
+        }
+        if (series.Count < 3)
+        {
+            valid = false;
+        }
+        return valid;
     }
     
     
     static char DisplayMenu(char select)
     {
         Console.WriteLine(
-            "a. Input a Series." +
             "b. Display the series in the order it was entered." +
             "c. Display the series in the reversed order it was entered." +
             "d. Display the series in sorted order (from low to high)." +
@@ -41,28 +56,28 @@ public class TheSeriesAnalyzer
                     Input();
                     break;
                 case 'b':
-                    OrderEntered();
+                    OrderEntered(listInput);
                     break;
                 case 'c':
-                    OrderReversed();
+                    OrderReversed(listInput);
                     break;
                 case 'd':
-                    OrderSorted();
+                    OrderSorted(listInput);
                     break;
                 case 'e':
-                    Max();
+                    Max(listInput);
                     break;
                 case 'f':
-                    Min();
+                    Min(listInput);
                     break;
                 case 'g':
-                    Average();
+                    Average(listInput);
                     break;
                 case 'h':
-                    Length();
+                    Length(listInput);
                     break;
                 case 'i':
-                    Sum();
+                    Sum(listInput);
                     break;
                 case 'j':
                     Input();
