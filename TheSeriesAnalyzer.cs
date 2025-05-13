@@ -50,41 +50,45 @@ public class TheSeriesAnalyzer
         int ascii = (int)c;
         if (ascii >= 97 && ascii <= 102)
         {
-            switch (select)
+            do
             {
-                case 'a':
-                    Input();
-                    break;
-                case 'b':
-                    OrderEntered(listInput);
-                    break;
-                case 'c':
-                    OrderReversed(listInput);
-                    break;
-                case 'd':
-                    OrderSorted(listInput);
-                    break;
-                case 'e':
-                    Max(listInput);
-                    break;
-                case 'f':
-                    Min(listInput);
-                    break;
-                case 'g':
-                    Average(listInput);
-                    break;
-                case 'h':
-                    Length(listInput);
-                    break;
-                case 'i':
-                    Sum(listInput);
-                    break;
-                case 'j':
-                    Input();
-                    break;
-                default:
-                    break;
-            }
+                switch (select)
+                {
+                    case 'a':
+                        Input();
+                        break;
+                    case 'b':
+                        OrderEntered(listInput);
+                        break;
+                    case 'c':
+                        OrderReversed(listInput);
+                        break;
+                    case 'd':
+                        OrderSorted(listInput);
+                        break;
+                    case 'e':
+                        Max(listInput);
+                        break;
+                    case 'f':
+                        Min(listInput);
+                        break;
+                    case 'g':
+                        Average(listInput);
+                        break;
+                    case 'h':
+                        Length(listInput);
+                        break;
+                    case 'i':
+                        Sum(listInput);
+                        break;
+                    case 'j':
+                        Input();
+                        break;
+                    default:
+                        break;
+                } 
+            } while (case != "j");
+            
         }
         else
         {
